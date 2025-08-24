@@ -3,17 +3,25 @@ formDataE6.addEventListener("submit", function (e) {
   e.preventDefault();
 
   let primoArray = [];
-  for (let i = 1; i <= 100; i++) {
-    if (calcularPrimo(i)) {
-      primoArray.push(i);
+
+  for (let i = 0; i < 100; i++) {
+    if (esPrimo(i + 1)) {
+      primoArray.push(i + 1);
     }
   }
 
-  function calcularPrimo(numero) {
-    if (numero % 1 == 0 && numero % numero == 0) {
-      return true;
+  function esPrimo(numero) {
+    if (numero < 2) return false; // 0 y 1 no son primos
+
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+      if (numero % i === 0) {
+        return false; // si tiene un divisor, no es primo
+      }
     }
+    return true; // si no encontramos divisores, es primo
   }
 
-  formDataE6.querySelector("#showDisplayE6").textContent = primoArray;
+  formDataE6.querySelector(
+    "#showDisplayE6"
+  ).textContent = `Los números primos de 1 a 100 son: ${primoArray}`;
 });
