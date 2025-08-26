@@ -6,10 +6,6 @@ formDataE8.addEventListener("submit", (e) => {
   let numero = generarNumero();
   let resultado;
 
-  function generarNumero() {
-    return Math.floor(Math.random() * 100) + 1;
-  }
-
   switch (numero) {
     case numero % 3 == 0:
       resultado = "Fizz";
@@ -27,3 +23,7 @@ formDataE8.addEventListener("submit", (e) => {
 
   formDataE8.querySelector("#showDisplayE8").textContent = resultado;
 });
+
+function generarNumero() {
+  return Math.floor(Math.random() * 100) + 1;
+}

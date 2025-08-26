@@ -1,9 +1,9 @@
 const formDataE4 = document.getElementById("ejercicio-4");
+let palabrasArray = [];
 
 formDataE4.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let palabrasArray = [];
   let palabrasIngresadas = formDataE4.querySelector("#palabras").value;
 
   palabrasIngresadas.split(",").forEach((p) => {
@@ -19,9 +19,9 @@ formDataE4.addEventListener("submit", (e) => {
     resultado = `La palabra ${pala} NO fue encontrada.`;
   }
 
-  function verificar(palabra) {
-    return palabrasArray.includes(palabra);
-  }
-
   formDataE4.querySelector("#showDisplayE4").textContent = resultado;
 });
+
+function verificar(palabra) {
+  return palabrasArray.includes(palabra);
+}
