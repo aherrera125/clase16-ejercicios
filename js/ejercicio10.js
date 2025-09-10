@@ -5,19 +5,17 @@ formDataE10.addEventListener("submit", (e) => {
 
   password = () => {
     let lyric = "abcdefghijklmnopqrstuvwxyz";
-
     let index1 = Math.floor(Math.random() * lyric.length);
     let upperCase = lyric[index1].toUpperCase();
-
     let index2 = 0;
     let lowerCase = "";
+
     for (let i = 0; i < 4; i++) {
       index2 = Math.floor(Math.random() * lyric.length);
       lowerCase += lyric[index2].toLowerCase();
     }
 
     let number = Math.floor(Math.random() * 99 + 1);
-
     let symbols = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
     let index3 = Math.floor(Math.random() * symbols.length);
     let symbol = symbols[index3];
