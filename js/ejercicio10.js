@@ -3,29 +3,38 @@ const formDataE10 = document.getElementById("ejercicio10");
 formDataE10.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let contraseña = () => {
-    let letras = "abcdefghijklmnopqrstuvwxyz";
+  let password = () => {
+    let lyric = "abcdefghijklmnopqrstuvwxyz";
 
-    let indice1 = Math.floor(Math.random() * letras.length);
-    let mayuscula = letras[indice1].toUpperCase();
+    let index1 = Math.floor(Math.random() * lyric.length);
+    let upperCase = lyric[index1].toUpperCase();
 
-    let indice2 = 0;
-    let minuscula = "";
+    let index2 = 0;
+    let lowerCase = "";
     for (let i = 0; i < 4; i++) {
-      indice2 = Math.floor(Math.random() * letras.length);
-      minuscula += letras[indice2].toLowerCase();
+      index2 = Math.floor(Math.random() * lyric.length);
+      lowerCase += lyric[index2].toLowerCase();
     }
 
-    let numero = Math.floor(Math.random() * 99 + 1);
+    let number = Math.floor(Math.random() * 99 + 1);
 
-    let simbolos = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-    let indice3 = Math.floor(Math.random() * simbolos.length);
-    let simbolo = simbolos[indice3];
+    let symbols = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+    let index3 = Math.floor(Math.random() * symbols.length);
+    let symbol = symbols[index3];
 
-    return mayuscula + minuscula + numero + simbolo;
+    let pass = upperCase + lowerCase + number + symbol;
+
+    // Convertimos el string en array
+    let passArray = pass.split("");
+
+    // Usamos sort con Math.random()
+    passArray.sort(() => Math.random() - 0.5);
+
+    // Volvemos a unir el array en un string
+    return passArray.join("");
   };
 
   formDataE10.querySelector(
     "#showDisplayE10"
-  ).textContent = `La contraseña generada es: ${contraseña()}`;
+  ).textContent = `La contraseña generada es: ${password()}`;
 });
