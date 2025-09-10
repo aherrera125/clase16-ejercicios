@@ -3,7 +3,7 @@ const formDataE10 = document.getElementById("ejercicio10");
 formDataE10.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let password = () => {
+  password = () => {
     let lyric = "abcdefghijklmnopqrstuvwxyz";
 
     let index1 = Math.floor(Math.random() * lyric.length);
@@ -24,17 +24,17 @@ formDataE10.addEventListener("submit", (e) => {
 
     let pass = upperCase + lowerCase + number + symbol;
 
-    // Convertimos el string en array
-    let passArray = pass.split("");
-
-    // Usamos sort con Math.random()
-    passArray.sort(() => Math.random() - 0.5);
-
-    // Volvemos a unir el array en un string
-    return passArray.join("");
+    return unsort(pass);
   };
 
   formDataE10.querySelector(
     "#showDisplayE10"
   ).textContent = `La contraseña generada es: ${password()}`;
 });
+
+unsort = (pass) => {
+  let passArray = pass.split("");
+  passArray.sort(() => Math.random() - 0.5);
+
+  return passArray.join("");
+};
